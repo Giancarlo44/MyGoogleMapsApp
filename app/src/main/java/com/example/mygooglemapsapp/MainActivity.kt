@@ -160,6 +160,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onRequestPermissionsResult(
         requestCode: Int, permissions: Array<String>, grantResults: IntArray
     ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults) // Agrega esta línea
         if (requestCode == 1 && grantResults.isNotEmpty() &&
             grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             enableMyLocation()
@@ -167,6 +168,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
             Toast.makeText(this, "Permiso de ubicación denegado", Toast.LENGTH_SHORT).show()
         }
     }
+
 
     private fun changeMapType() {
         if (::mMap.isInitialized) {
